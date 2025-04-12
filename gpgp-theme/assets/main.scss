@@ -113,7 +113,11 @@ $link-decoration: none;
 
 /**
  * General
- */
+*/
+
+//template parts imports
+@import 'template-parts/variables';
+@import 'template-parts/header';
 
 body {
 	&.page-template-page-full {
