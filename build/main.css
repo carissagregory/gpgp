@@ -12733,11 +12733,15 @@ p {
 #footer nav {
   text-align: left;
 }
-#footer nav a {
+#footer nav a.nav-link {
   color: white;
 }
-#footer nav a:hover {
+#footer nav a.nav-link:hover {
   color: #E9E3DA;
+}
+#footer .menu-item a[aria-current=page] {
+  color: white;
+  border-bottom: 1px solid #989CBE;
 }
 
 body {
@@ -12805,9 +12809,6 @@ img {
 }
 #footer p {
   margin-top: 10px;
-}
-#footer .menu-item a[aria-current=page] {
-  color: #0a58ca;
 }
 
 /* Sidebar */
