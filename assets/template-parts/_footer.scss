@@ -1,0 +1,17 @@
+#footer {
+    border-top: 10px solid $darkRed;
+    background-color: $darkBlue;
+    #copyright {
+        color: white;
+        text-align: left;
+    }
+    nav {
+        text-align: left;
+        a {
+            color: white;
+        }
+        a:hover {
+            color: $cream;
+        }
+    }
+}

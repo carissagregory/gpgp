@@ -113,7 +113,13 @@ $link-decoration: none;
 
 /**
  * General
- */
+*/
+
+//template parts imports
+@import 'template-parts/variables';
+@import 'template-parts/font';
+@import 'template-parts/header';
+@import 'template-parts/footer';
 
 body {
 	&.page-template-page-full {
@@ -194,7 +200,7 @@ img {
 /* Footer */
 
 #footer {
-	background-color: #fff;
+	background-color: $darkBlue;
 
 	p {
 		margin-top: 10px;
@@ -365,5 +371,3 @@ img {
 		margin-top: 60px;
 	}
 }
-
-/*test*/

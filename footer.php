@@ -16,7 +16,7 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6" id="copyright">
 						<p><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'gpgp-theme' ), wp_date( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
 					</div>
 
