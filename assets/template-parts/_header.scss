@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'font';
+
+#site-header {
+  background-color: $darkBlue !important;
+  color: $cream;
+  padding: 1rem 0;
+  border-bottom: 10px solid $gold;
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    .header-logo img {
+      height: 60px;
+    }
+
+    .header-text {
+      text-align: right;
+
+      h1 {
+        margin: 0;
+        font-family: "Inria Serif", serif;
+        color: $gold;
+      }
+
+      p {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        color: $cream;
+      }
+    }
+  }
+
+  .main-nav {
+    background-color: $darkRed;
+    padding: 0.5rem 2rem;
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        color: $cream;
+        font-family: "Inria Serif", serif;
+        text-decoration: none;
+
+        &:hover {
+          color: $lightBlue;
+        }
+      }
+    }
+  }
+}

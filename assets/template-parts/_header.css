@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal; }
+
+nav a {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal; }
+
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+#copyright {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal; }
+
+#site-header {
+  background-color: #313768 !important;
+  color: #E9E3DA;
+  padding: 1rem 0;
+  border-bottom: 10px solid #BB8A3D; }
+  #site-header .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem; }
+    #site-header .header-inner .header-logo img {
+      height: 60px; }
+    #site-header .header-inner .header-text {
+      text-align: right; }
+      #site-header .header-inner .header-text h1 {
+        margin: 0;
+        font-family: "Inria Serif", serif;
+        color: #BB8A3D; }
+      #site-header .header-inner .header-text p {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        color: #E9E3DA; }
+  #site-header .main-nav {
+    background-color: #932B28;
+    padding: 0.5rem 2rem; }
+    #site-header .main-nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #site-header .main-nav .nav-links li a {
+        color: #E9E3DA;
+        font-family: "Inria Serif", serif;
+        text-decoration: none; }
+        #site-header .main-nav .nav-links li a:hover {
+          color: #989CBE; }
