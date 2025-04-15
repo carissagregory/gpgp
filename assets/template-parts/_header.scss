@@ -5,7 +5,8 @@
   background-color: $darkBlue !important;
   color: $cream;
   padding: 1rem 0;
-  border-bottom: 10px solid $gold;
+  border-top: 10px solid $darkRed;
+  border-bottom: 10px solid $darkRed;
 
   .header-inner {
     display: flex;
@@ -14,16 +15,17 @@
     padding: 0 2rem;
 
     .header-logo img {
-      height: 60px;
+      height: 100px;
     }
 
     .header-text {
-      text-align: right;
+      color: $cream;
+      text-align: left;
 
       h1 {
         margin: 0;
         font-family: "Inria Serif", serif;
-        color: $gold;
+        color: $cream;
       }
 
       p {
@@ -35,7 +37,7 @@
   }
 
   .main-nav {
-    background-color: $darkRed;
+    background-color: $lightBlue;
     padding: 0.5rem 2rem;
 
     .nav-links {
