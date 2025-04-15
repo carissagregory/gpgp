@@ -4,14 +4,19 @@
     #copyright {
         color: white;
         text-align: left;
+
     }
     nav {
         text-align: left;
-        a {
+        a.nav-link {
             color: white;
         }
-        a:hover {
+        a.nav-link:hover {
             color: $cream;
         }
+    }
+    .menu-item a[aria-current=page] {
+        color: white;
+        border-bottom: 1px solid $lightBlue;
     }
 }
