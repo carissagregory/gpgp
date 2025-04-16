@@ -12678,7 +12678,8 @@ p {
   background-color: #313768 !important;
   color: #E9E3DA;
   padding: 1rem 0;
-  border-bottom: 10px solid #BB8A3D;
+  border-top: 10px solid #932B28;
+  border-bottom: 10px solid #932B28;
 }
 #site-header .header-inner {
   display: flex;
@@ -12687,15 +12688,16 @@ p {
   padding: 0 2rem;
 }
 #site-header .header-inner .header-logo img {
-  height: 60px;
+  height: 100px;
 }
 #site-header .header-inner .header-text {
-  text-align: right;
+  color: #E9E3DA;
+  text-align: left;
 }
 #site-header .header-inner .header-text h1, #site-header .header-inner .header-text .h1 {
   margin: 0;
   font-family: "Inria Serif", serif;
-  color: #BB8A3D;
+  color: #E9E3DA;
 }
 #site-header .header-inner .header-text p {
   margin: 0;
@@ -12703,7 +12705,7 @@ p {
   color: #E9E3DA;
 }
 #site-header .main-nav {
-  background-color: #932B28;
+  background-color: #989CBE;
   padding: 0.5rem 2rem;
 }
 #site-header .main-nav .nav-links {
