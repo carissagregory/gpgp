@@ -4,6 +4,7 @@
  * Description: Page template with Sidebar on the left side.
  *
  */
+// Create EVENTs HTML
 
  get_header();
 
