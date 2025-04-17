@@ -6,6 +6,7 @@
         text-align: left;
 
     }
+
     nav {
         text-align: left;
         a.nav-link {
@@ -15,8 +16,11 @@
             color: $cream;
         }
     }
-    .menu-item a[aria-current=page] {
-        color: white;
-        border-bottom: 1px solid $lightBlue;
+    #footerMenu {
+        
+        .menu-item a[aria-current=page] {
+            color: white;
+            border-bottom: 1px solid $lightBlue;
+        }        
     }
 }
