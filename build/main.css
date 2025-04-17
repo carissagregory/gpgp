@@ -12677,88 +12677,51 @@ p {
 #site-header {
   background-color: #313768 !important;
   color: #E9E3DA;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   border-top: 10px solid #932B28;
   border-bottom: 10px solid #932B28;
+}
+#site-header .header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
-#site-header .header-logo {
-  display: inline-block;
+#site-header .header-inner .header-logo img {
+  height: 100px;
 }
-#site-header .header-logo img {
-  height: 120px;
-}
-#site-header .header-text {
+#site-header .header-inner .header-text {
   color: #E9E3DA;
   text-align: left;
-  margin-left: 20px;
 }
-#site-header .header-text h1, #site-header .header-text .h1 {
+#site-header .header-inner .header-text h1, #site-header .header-inner .header-text .h1 {
   margin: 0;
   font-family: "Inria Serif", serif;
-  font-size: 3rem;
   color: #E9E3DA;
-  text-transform: uppercase;
 }
-#site-header .header-text p {
+#site-header .header-inner .header-text p {
   margin: 0;
   font-family: "Lato", sans-serif;
-  font-size: 1.5rem;
   color: #E9E3DA;
 }
-#site-header .header-login {
-  margin-left: auto;
-}
-#site-header .header-login .login-button {
-  background-color: #BB8A3D;
-  color: #E9E3DA;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: "Lato", sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-}
-#site-header .header-login .login-button:hover {
-  background-color: #932B28;
-}
-
-.nav-wrapper {
-  width: 100%;
+#site-header .main-nav {
   background-color: #989CBE;
-  padding: 10px 0;
+  padding: 0.5rem 2rem;
 }
-.nav-wrapper .main-nav {
+#site-header .main-nav .nav-links {
   display: flex;
-  justify-content: flex-start;
-  gap: 3rem;
-  padding-left: 20px;
-}
-.nav-wrapper .main-nav .nav-links {
-  display: flex;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  letter-spacing: 1px;
 }
-.nav-wrapper .main-nav .nav-links li {
-  display: inline-block;
-  margin-right: 2.5rem;
-}
-.nav-wrapper .main-nav .nav-links li a {
-  color: #000;
+#site-header .main-nav .nav-links li a {
+  color: #E9E3DA;
   font-family: "Inria Serif", serif;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
-.nav-wrapper .main-nav .nav-links li a:hover, .nav-wrapper .main-nav .nav-links li a:focus, .nav-wrapper .main-nav .nav-links li a:active {
-  color: #932B28;
+#site-header .main-nav .nav-links li a:hover {
+  color: #989CBE;
 }
 
 #footer {
