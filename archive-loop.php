@@ -3,27 +3,51 @@
  * The template for displaying the archive loop.
  */
 
-gpgp_theme_content_nav( 'nav-above' );
+get_header();
 
 if ( have_posts() ) :
-?>
-	<div class="row">
-	<?php
-		while ( have_posts() ) :
-			the_post();
+    echo '<div class="game-archive">'; // Container for game posts
+    while ( have_posts() ) :
+        the_post();
 
-			/**
-			 * Include the Post-Format-specific template for the content.
-			 * If you want to overload this in a child theme then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'content', 'index' ); // Post format: content-index.php
-		endwhile;
-	?>
-	</div>
-<?php
+        // Get the categories associated with the post
+        $categories = get_the_category();
+        $background_color = '';
+
+        // Check for specific categories and assign colors
+        foreach ($categories as $category) {
+            if ($category->slug == 'board-game') {
+                $background_color = '#BB8A3D'; // Gold for Board Game
+            } elseif ($category->slug == 'rpg') {
+                $background_color = '#932B28'; // Red for RPG
+            } elseif ($category->slug == 'card-game') {
+                $background_color = '#989CBE'; // Light Blue for Card Games
+            } elseif ($category->slug == 'miniature-wargame') {
+                $background_color = '#313768'; // Dark Blue for Miniature Wargames
+            }
+            // Add more categories and colors as needed
+        }
+
+        ?>
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-color: <?php echo esc_attr($background_color); ?>;">
+            <header class="entry-header">
+                <h2 class="entry-title"><?php the_title(); ?></h2>
+            </header>
+            <div class="entry-content">
+                <?php
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail();
+                }
+                the_content(); // Display the game details (or excerpt)
+                ?>
+            </div>
+        </article>
+        <?php
+    endwhile;
+    echo '</div>';
+else :
+    echo '<p>No games found.</p>';
 endif;
 
-wp_reset_postdata();
-
-gpgp_theme_content_nav( 'nav-below' );
+get_footer();
+?>
