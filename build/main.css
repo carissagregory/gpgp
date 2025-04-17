@@ -12801,6 +12801,84 @@ body.post-type-archive-tribe_events {
   color: blue !important;
 }
 
+.gamePost {
+  background-color: #E9E3DA;
+  color: #313768;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.gamePost .gamePostImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.gamePost .gamePostContent {
+  margin-top: 15px;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.gamePost .gamePostTitle {
+  font-family: "Inria Serif", serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #932B28;
+  margin-bottom: 10px;
+}
+.gamePost .gamePostInfo {
+  font-size: 1rem;
+  color: #313768;
+  margin-bottom: 15px;
+}
+.gamePost .gamePostInfo span {
+  font-weight: bold;
+}
+
+.archiveHeader {
+  background-color: #313768;
+  color: #E9E3DA;
+  padding: 20px;
+  text-align: center;
+  border-top: 8px solid #932B28;
+  border-bottom: 8px solid #932B28;
+}
+.archiveHeader h1, .archiveHeader .h1 {
+  font-family: "Inria Serif", serif;
+  font-size: 2.5rem;
+}
+.archiveHeader p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+}
+
+.navbar {
+  background-color: #989CBE;
+  color: #E9E3DA;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+.navbar .nav-links {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar .nav-links li {
+  margin-right: 20px;
+}
+.navbar .nav-links a {
+  color: #E9E3DA;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Lato", sans-serif;
+}
+.navbar .nav-links a:hover {
+  color: #932B28;
+}
+
 body {
   /* If WP-Adminbar is visible */
 }

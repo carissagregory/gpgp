@@ -1,0 +1,88 @@
+.gamePost {
+  background-color: $cream; // Light background for the posts
+  color: $darkBlue; // Dark text for readability
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .gamePostImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .gamePostContent {
+    margin-top: 15px;
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .gamePostTitle {
+    font-family: "Inria Serif", serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $darkRed; // Title in dark red
+    margin-bottom: 10px;
+  }
+
+  .gamePostInfo {
+    font-size: 1rem;
+    color: $darkBlue; // Dark blue text for game info
+    margin-bottom: 15px;
+  }
+
+  .gamePostInfo span {
+    font-weight: bold;
+  }
+}
+
+.archiveHeader {
+  background-color: $darkBlue; // Dark blue header background
+  color: $cream; // Light text color for the header
+  padding: 20px;
+  text-align: center;
+  border-top: 8px solid $darkRed;
+  border-bottom: 8px solid $darkRed;
+
+  h1 {
+    font-family: "Inria Serif", serif;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
+  }
+}
+
+.navbar {
+  background-color: $lightBlue; // Light blue navbar
+  color: $cream;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+
+  .nav-links {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 20px;
+    }
+
+    a {
+      color: $cream;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-family: "Lato", sans-serif;
+
+      &:hover {
+        color: $darkRed; // Hover state in dark red
+      }
+    }
+  }
+}
