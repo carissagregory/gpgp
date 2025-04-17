@@ -1,10 +1,9 @@
-div.scroll-container {
-    background-color: $lightBlue;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px;
-  }
-  
-  div.scroll-container img {
-    padding: 10px;
-  }
+#mainImg {
+  background-color: $darkBlue;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+#aboutImg {
+  border-radius: 20px;
+}
