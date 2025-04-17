@@ -30,12 +30,8 @@ if ( have_posts() ) :
 	// Add class based on post type
 	if ( has_term( 'deck-builder', 'game-type' ) ) {
 		echo 'gameDeckBuilder';
-	} elseif ( has_term( 'table-top-rpg', 'game-type' ) ) {
-		echo 'gameTableTopRPG';
 	} elseif ( has_term( 'board-game', 'game-type' ) ) {
 		echo 'gameBoardGame';
-	} elseif ( has_term( 'miniature-wargame', 'game-type' ) ) {
-		echo 'gameMiniatureWargame';
 	}
 	?>">
 	<div class="gameImage">

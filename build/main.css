@@ -12805,9 +12805,14 @@ body.post-type-archive-tribe_events {
   background-color: #E9E3DA;
   color: #313768;
   padding: 20px;
-  margin: 15px 0;
+  margin: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(33.33% - 30px); /* 3 columns with spacing */
+  margin-bottom: 20px;
 }
 .gamePost .gamePostImage {
   max-width: 100%;
@@ -12819,6 +12824,7 @@ body.post-type-archive-tribe_events {
   font-family: "Lato", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
+  text-align: left;
 }
 .gamePost .gamePostTitle {
   font-family: "Inria Serif", serif;
@@ -12836,47 +12842,91 @@ body.post-type-archive-tribe_events {
   font-weight: bold;
 }
 
-.archiveHeader {
-  background-color: #313768;
-  color: #E9E3DA;
+.games-archive-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.game-post {
+  background-color: #E9E3DA;
+  color: #313768;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 30px);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-game-bg {
+  background-color: #BB8A3D; /* Gold for board games */
+}
+
+.card-game-bg {
+  background-color: #313768; /* Dark blue for card games */
+}
+
+.rpg-bg {
+  background-color: #989CBE; /* Light blue for RPGs */
+}
+
+.default-bg {
+  background-color: #E9E3DA; /* Default background color */
+}
+
+.game-post h2, .game-post .h2 {
+  font-family: "Inria Serif", serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #932B28; /* Title in dark red */
+  margin-bottom: 10px;
+}
+
+.game-post-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.game-post-excerpt {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.game-post a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #932B28;
+}
+
+.game-post a:hover {
+  color: #989CBE;
+}
+
+.games-archive-header {
+  background-color: #313768; /* Dark blue header background */
+  color: #E9E3DA; /* Light text color */
   padding: 20px;
   text-align: center;
-  border-top: 8px solid #932B28;
   border-bottom: 8px solid #932B28;
 }
-.archiveHeader h1, .archiveHeader .h1 {
+
+.games-archive-header h1, .games-archive-header .h1 {
   font-family: "Inria Serif", serif;
   font-size: 2.5rem;
 }
-.archiveHeader p {
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-}
 
-.navbar {
-  background-color: #989CBE;
-  color: #E9E3DA;
-  padding: 10px 20px;
-  margin-bottom: 30px;
-}
-.navbar .nav-links {
-  display: flex;
-  justify-content: flex-start;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.navbar .nav-links li {
-  margin-right: 20px;
-}
-.navbar .nav-links a {
-  color: #E9E3DA;
-  text-decoration: none;
-  font-size: 1.2rem;
+.games-archive-header p {
   font-family: "Lato", sans-serif;
-}
-.navbar .nav-links a:hover {
-  color: #932B28;
+  font-size: 1.2rem;
 }
 
 body {
