@@ -16,10 +16,10 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 order-2" id="copyright">
+					<div class="col-lg-6 col-md-12 order-2" id="copyright">
 						<p><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'gpgp-theme' ), wp_date( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
 					</div>
-					<div class="col-md-6 order-1" id="footerMenu">
+					<div class="col-md-6 col-md-12 order-1" id="footerMenu">
 					<?php
 						if ( has_nav_menu( 'footer-menu' ) ) : // See function register_nav_menus() in functions.php
 							/*

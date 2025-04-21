@@ -3,12 +3,14 @@
     background-color: $darkBlue;
     #copyright {
         color: white;
-        text-align: left;
+        display: flex;
+        justify-content: flex-end;
 
     }
 
     nav {
-        text-align: left;
+        display: flex;
+        justify-content: flex-start;
         a.nav-link {
             color: white;
         }
@@ -16,8 +18,28 @@
             color: $cream;
         }
     }
-    .menu-item a[aria-current=page] {
-        color: white;
-        border-bottom: 1px solid $lightBlue;
-    }        
+//change current page link
+    // .menu-item a[aria-current=page] {
+    //     color: white;
+    // }        
 }
+
+@media (max-width: 768px) {
+    #footer {
+        #copyright {
+            justify-content: center;
+        }
+    
+        nav {
+            justify-content: flex-start;
+        }      
+    }
+}
+
+@media (max-width: 576px) {
+    #footer {
+        #copyright {
+            font-size: 14px;
+        }      
+    }
+  }

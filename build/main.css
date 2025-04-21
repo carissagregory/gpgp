@@ -12767,10 +12767,12 @@ p {
 }
 #footer #copyright {
   color: white;
-  text-align: left;
+  display: flex;
+  justify-content: flex-end;
 }
 #footer nav {
-  text-align: left;
+  display: flex;
+  justify-content: flex-start;
 }
 #footer nav a.nav-link {
   color: white;
@@ -12778,21 +12780,49 @@ p {
 #footer nav a.nav-link:hover {
   color: #E9E3DA;
 }
-#footer .menu-item a[aria-current=page] {
-  color: white;
-  border-bottom: 1px solid #989CBE;
-}
 
-#mainImg {
+@media (max-width: 768px) {
+  #footer #copyright {
+    justify-content: center;
+  }
+  #footer nav {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 576px) {
+  #footer #copyright {
+    font-size: 14px;
+  }
+}
+#imgDiv {
+  text-align: center;
+}
+#imgDiv #mainImg {
   background-color: #313768;
-  padding: 5px;
+  padding: 10px;
   border-radius: 20px;
+  height: 300px;
+  width: 700px;
+  margin: 10px 0;
+}
+#imgDiv #aboutImg {
+  border-radius: 20px;
+  height: 300px;
+  width: 700px;
+  margin: 10px 0;
 }
 
-#aboutImg {
-  border-radius: 20px;
+#gameDisplay {
+  background-color: #989CBE;
 }
 
+@media (max-width: 576px) {
+  #imgDiv #mainImg, #imgDiv #aboutImg {
+    height: 200px;
+    width: 100%;
+    border-radius: 0;
+  }
+}
 body.tribe_events-template-default {
   background-color: orange !important;
 }
@@ -12854,6 +12884,7 @@ body.post-type-archive-tribe_events {
 }
 
 body {
+  background-color: #E9E3DA;
   /* If WP-Adminbar is visible */
 }
 body.page-template-page-full #main {

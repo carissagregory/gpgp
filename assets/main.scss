@@ -125,6 +125,7 @@ $link-decoration: none;
 @import 'template-parts/posts-archive';
 
 body {
+	background-color: $cream;
 	&.page-template-page-full {
 		#main {
 			max-width: 100%;

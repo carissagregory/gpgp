@@ -1,9 +1,37 @@
-#mainImg {
-  background-color: $darkBlue;
-  padding: 5px;
+@mixin imgStyles {
   border-radius: 20px;
+  height: 300px;
+  width: 700px;
+  margin: 10px 0;
 }
 
-#aboutImg {
-  border-radius: 20px;
+@mixin mobileImgStyles {
+  height: 200px;
+  width: 100%;
+  border-radius: 0;
+}
+
+#imgDiv {
+  text-align: center;
+  #mainImg {
+    background-color: $darkBlue;
+    padding: 10px;
+    @include imgStyles;
+  }
+
+  #aboutImg {
+    @include imgStyles;
+  }
+}
+
+#gameDisplay{
+  background-color: $lightBlue;
+}
+
+@media (max-width: 576px) {
+  #imgDiv {
+    #mainImg, #aboutImg {
+      @include mobileImgStyles;
+    }
+  }
 }
