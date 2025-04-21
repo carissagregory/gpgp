@@ -12778,7 +12778,7 @@ p {
 #footer nav a.nav-link:hover {
   color: #E9E3DA;
 }
-#footer #footerMenu .menu-item a[aria-current=page] {
+#footer .menu-item a[aria-current=page] {
   color: white;
   border-bottom: 1px solid #989CBE;
 }
