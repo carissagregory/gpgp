@@ -1,5 +1,6 @@
 /**
- * created in attemp to get game posts to load */
+ * Created to load game posts on the home/posts page.
+ */
 
 
 <?php
