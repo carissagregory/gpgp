@@ -1,7 +1,4 @@
 <?php
-/**
- * Template for displaying Archive (POSTS) pages */
-
 get_header();
 
 if ( have_posts() ) :
