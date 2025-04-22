@@ -26,26 +26,10 @@ if ( have_posts() ) :
 	// Start loop for displaying posts/games
 	while ( have_posts() ) : the_post();
 
-		$background_class = '';
-		$categories = get_the_category();
-		foreach ($categories as $category) {
-			if ($category->slug == 'blue') {
-				$background_class = 'gameCardDarkBlue';
-			} elseif ($category->slug == 'red') {
-				$background_class = 'gameCardDarkRed';
-			} elseif ($category->slug == 'gold') {
-				$background_class = 'gameCardGold';
-			} elseif ($category->slug == 'lightblue') {
-				$background_class = 'gameCardLightBlue';
-			} elseif ($category->slug == 'cream') {
-				$background_class = 'gameCardCream';
-			} elseif ($category->slug == 'black') {
-				$background_class = 'gameCardBlack';
-			} elseif ($category->slug == 'white') {
-				$background_class = 'gameCardWhite';
-			}
-		}
-		if (empty($background_class)) {
+		$color_slug = get_field('game_color');
+		if ($color_slug) {
+			$background_class = 'gameCard' . ucfirst($color_slug);
+		} else {
 			$background_class = 'gameCardDefault';
 		}
 ?>
