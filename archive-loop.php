@@ -5,11 +5,11 @@
 get_header();
 
 if ( have_posts() ) :
-    echo '<div class="container"><div class="row">';
-    get_template_part('posts', 'archive');
-    echo '</div></div>';
+    while ( have_posts() ) : the_post();
+        echo '<h2>' . get_the_title() . '</h2>';
+    endwhile;
 else :
-    echo '<p>No games found</p>';
+    echo '<p>No posts found.</p>';
 endif;
 
 get_footer();
