@@ -1,7 +1,82 @@
-body.tribe_events-template-default{
-    background-color: orange !important;
+//Event title
+.tribe-events-single-event-title {
+    color: $darkRed;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid $gold;
+    }
+    
+//would be the content div with the p and the image
+.tribe-events-content{
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: $lightBlue;
+    
+    ol, ul {
+        margin-bottom: 2rem;
+    }
+    p {
+        flex: 2;
+        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        line-height: 1.6;
+    }
+    img {
+        flex: 1;
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        display: block;
+        object-fit: contain;
+        aspect-ratio: 16/9;
+    }
+    ol:last-child, p:last-child, ul:last-child {
+        margin-bottom: 2rem;
+    }
 }
-
-body.post-type-archive-tribe_events{
-    color: blue !important;
+    
+.tribe-events-content p, .tribe-events-content ol, .tribe-events-content ul {
+    margin-top: 2rem;
+}
+    
+//Drop down button
+.tribe-events-c-subscribe-dropdown {
+    .tribe-events-c-subscribe-dropdown__button {
+        background-color: $gold;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}
+    
+//events page where you see the events
+ //Find Events Button
+.tribe-common--breakpoint-medium.tribe-events .tribe-common-c-btn.tribe-events-c-search__button {
+    flex: none;
+    margin-top: 0;
+    background-color: $darkBlue;
+}
+// Search bar for the search input
+.tribe-events .tribe-events-c-events-bar .tribe-common-form-control-text__input {
+    background-color: transparent;
+    color: var(--tec-color-text-events-bar-input);
+    outline: none;
 }
