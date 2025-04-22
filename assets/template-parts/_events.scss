@@ -80,3 +80,8 @@
     color: var(--tec-color-text-events-bar-input);
     outline: none;
 }
+
+//prevents side bar and recent content from displaying 
+#widget-area, #primary-two {
+    display: none;
+}

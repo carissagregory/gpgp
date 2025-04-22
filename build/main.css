@@ -12899,6 +12899,10 @@ p {
   outline: none;
 }
 
+#widget-area, #primary-two {
+  display: none;
+}
+
 .gameGrid {
   display: flex;
   flex-wrap: wrap;
