@@ -1,3 +1,5 @@
+echo '<!-- ARCHIVE TEMPLATE LOADED -->';
+
 <?php
 get_header();
 
