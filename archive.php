@@ -1,7 +1,6 @@
 <?php
 /**
- * The Template for displaying Archive (POSTS) pages.
- */
+ * Template for displaying Archive (POSTS) pages */
 
 get_header();
 
@@ -22,35 +21,54 @@ if ( have_posts() ) :
 		?>
 	</h1>
 </header>
+<div class="game-archive">
 <?php
-	// Start the loop for displaying posts.
+	// Start loop for displaying posts/games
 	while ( have_posts() ) : the_post();
+
+		$background_class = '';
+		$categories = get_the_category();
+		foreach ($categories as $category) {
+			if ($category->slug == 'blue') {
+				$background_class = 'gameCardDarkBlue';
+			} elseif ($category->slug == 'red') {
+				$background_class = 'gameCardDarkRed';
+			} elseif ($category->slug == 'gold') {
+				$background_class = 'gameCardGold';
+			} elseif ($category->slug == 'lightblue') {
+				$background_class = 'gameCardLightBlue';
+			} elseif ($category->slug == 'cream') {
+				$background_class = 'gameCardCream';
+			} elseif ($category->slug == 'black') {
+				$background_class = 'gameCardBlack';
+			} elseif ($category->slug == 'white') {
+				$background_class = 'gameCardWhite';
+			}
+		}
+		if (empty($background_class)) {
+			$background_class = 'gameCardDefault';
+		}
 ?>
-<div class="gamePost <?php 
-	// Add class based on post type
-	if ( has_term( 'deck-builder', 'game-type' ) ) {
-		echo 'gameDeckBuilder';
-	} elseif ( has_term( 'board-game', 'game-type' ) ) {
-		echo 'gameBoardGame';
-	}
-	?>">
+<div class="gamePost <?php echo esc_attr($background_class); ?>">
 	<div class="gameImage">
 		<?php the_post_thumbnail( 'full' ); // Display game image ?>
 	</div>
-	<div class="gameInfo">
+	<div class="gameSpecs">
 		<h3 class="gameName"><?php the_title(); ?></h3>
 		<p class="gamePlayers"><?php the_field( 'game_players' ); ?></p> <!-- Custom field for players -->
-		<p class="gameInfo"><?php the_field( 'game_info' ); ?></p> <!-- Custom field for game information -->
+		<p class="gameDetails"><?php the_field( 'game_info' ); ?></p> <!-- Custom field for game information -->
 		<div class="gameRules"><?php the_field( 'game_rules' ); ?></div> <!-- Custom field for game rules -->
 	</div>
 </div>
 <?php
 	endwhile;
-
-	// Reset post data after the loop.
+?>
+</div>
+<?php
+	// Reset after loop
 	wp_reset_postdata();
 else :
-	// If no posts are found, show a message.
+	// If no posts found, show message
 	get_template_part( 'content', 'none' );
 endif;
 

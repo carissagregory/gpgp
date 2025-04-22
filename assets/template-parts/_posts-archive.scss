@@ -13,12 +13,33 @@
   margin: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: calc(33.33% - 30px);
+  width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+@media (min-width: 600px) {
+  .gameCard {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (min-width: 992px) {
+  .gameCard {
+    width: calc(33.33% - 30px);
+  }
+}
+
+.gameCardDarkBlue { background-color: $darkBlue; color: $cream; }
+.gameCardDarkRed { background-color: $darkRed; color: $cream; }
+.gameCardGold { background-color: $gold; color: $darkBlue; }
+.gameCardLightBlue { background-color: $lightBlue; color: $darkBlue; }
+.gameCardCream { background-color: $cream; color: $darkBlue; }
+.gameCardBlack { background-color: #111111; color: #f9f9f9; }
+.gameCardWhite { background-color: #f9f9f9; color: #111111; }
+.gameCardDefault { background-color: #e0e0e0; color: #000; }
 
 .gameCardTitle {
   
@@ -46,6 +67,6 @@
   line-height: 1.6;
   text-align: left;
 }
-.entry-title {
+.archive .entry-title {
   display: none !important;
 }

@@ -1,35 +1,40 @@
 <?php
 /**
- * The template for displaying the archive loop.
- */
+ * template for displaying archive/game posts loop */
 
 get_header();
 
 if ( have_posts() ) :
-    echo '<div class="game-archive">'; // Container for game posts
+    echo '<div class="container"><div class="row">'; // Container for game posts
     while ( have_posts() ) :
         the_post();
 
-        // Get the categories associated with the post
+        // category colors for game posts
         $categories = get_the_category();
-        $background_color = '';
-
-        // Check for specific categories and assign colors
+        $background_class = '';
         foreach ($categories as $category) {
-            if ($category->slug == 'board-game') {
-                $background_color = '#BB8A3D'; // Gold for Board Game
-            } elseif ($category->slug == 'rpg') {
-                $background_color = '#932B28'; // Red for RPG
-            } elseif ($category->slug == 'card-game') {
-                $background_color = '#989CBE'; // Light Blue for Card Games
-            } elseif ($category->slug == 'miniature-wargame') {
-                $background_color = '#313768'; // Dark Blue for Miniature Wargames
+            if ($category->slug == 'blue') {
+                $background_class = 'gameCardDarkBlue';
+            } elseif ($category->slug == 'red') {
+                $background_class = 'gameCardDarkRed';
+            } elseif ($category->slug == 'gold') {
+                $background_class = 'gameCardGold';
+            } elseif ($category->slug == 'lightblue') {
+                $background_class = 'gameCardLightBlue';
+            } elseif ($category->slug == 'cream') {
+                $background_class = 'gameCardCream';
+            } elseif ($category->slug == 'black') {
+                $background_class = 'gameCardBlack';
+            } elseif ($category->slug == 'white') {
+                $background_class = 'gameCardWhite';
             }
-            // Add more categories and colors as needed
+        }
+        if (empty($background_class)) {
+            $background_class = 'gameCardDefault';
         }
 
         ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-color: <?php echo esc_attr($background_color); ?>;">
+        <article id="post-<?php the_ID(); ?>" <?php post_class($background_class); ?>>
             <header class="entry-header">
                 <h2 class="entry-title"><?php the_title(); ?></h2>
             </header>
@@ -38,13 +43,13 @@ if ( have_posts() ) :
                 if ( has_post_thumbnail() ) {
                     the_post_thumbnail();
                 }
-                the_content(); // Display the game details (or excerpt)
+                the_content(); //  game details (or excerpt)
                 ?>
             </div>
         </article>
         <?php
     endwhile;
-    echo '</div>';
+    echo '</div></div>';
 else :
     echo '<p>No games found.</p>';
 endif;
