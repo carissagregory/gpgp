@@ -53,7 +53,7 @@ if ( have_posts() ) :
 	wp_reset_postdata();
 else :
 	// If no posts found, show message
-	get_template_part( 'content', 'none' );
+	get_template_part('archive', 'loop');
 endif;
 
 get_footer();
