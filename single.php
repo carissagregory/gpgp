@@ -10,60 +10,39 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 
-		$color_slug = trim(get_field('game_color'));
-		$valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
+		if ( in_category('games') ) {
+		    $color_slug = trim(get_field('game_color'));
+		    $valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
 
-		if (in_array($color_slug, $valid_colors)) {
-		    $background_class = 'gameCard gameCard' . ucfirst($color_slug);
+		    if (in_array($color_slug, $valid_colors)) {
+		        $background_class = 'gameCard gameCard' . ucfirst($color_slug);
+		    } else {
+		        $background_class = 'gameCard gameCardDefault';
+		    }
+
+		    echo '<div class="' . esc_attr($background_class) . '">';
+
+		    if ( has_post_thumbnail() ) {
+		        echo '<div class="gameCardImage">';
+		        the_post_thumbnail('medium');
+		        echo '</div>';
+		    }
+
+		    echo '<h2 class="gameCardTitle">' . get_the_title() . '</h2>';
+		    echo '<div class="gameCardPlayers"><span>Players:</span> ' . get_field('game_players') . '</div>';
+		    echo '<div class="gameCardInfo"><span>Info:</span> ' . get_field('game_info') . '</div>';
+		    echo '<div class="gameCardGoal"><span>Goal:</span> ' . get_field('game_goal') . '</div>';
+		    echo '<div class="gameCardRules"><span>Rules:</span> ' . get_field('game_rules') . '</div>';
+		    echo '<div class="gameCardOther"><span>Other:</span> ' . get_field('game_other') . '</div>';
+		    echo '<div class="gameCardDetails">' . get_field('game_description') . '</div>';
+
+		    echo '</div>';
 		} else {
-		    $background_class = 'gameCard gameCardDefault';
+		    get_template_part( 'content', 'single' );
 		}
-
-		get_template_part( 'content', 'single' );
-
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
 	endwhile;
 endif;
 
 wp_reset_postdata();
-
-$count_posts = wp_count_posts();
-
-if ( $count_posts->publish > '1' ) :
-	$next_post = get_next_post();
-	$prev_post = get_previous_post();
-?>
-<hr class="mt-5">
-<div class="post-navigation d-flex justify-content-between">
-	<?php
-		if ( $prev_post ) {
-			$prev_title = get_the_title( $prev_post->ID );
-	?>
-		<div class="pr-3">
-			<a class="previous-post btn btn-lg btn-outline-secondary" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>" title="<?php echo esc_attr( $prev_title ); ?>">
-				<span class="arrow">&larr;</span>
-				<span class="title"><?php echo wp_kses_post( $prev_title ); ?></span>
-			</a>
-		</div>
-	<?php
-		}
-		if ( $next_post ) {
-			$next_title = get_the_title( $next_post->ID );
-	?>
-		<div class="pl-3">
-			<a class="next-post btn btn-lg btn-outline-secondary" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" title="<?php echo esc_attr( $next_title ); ?>">
-				<span class="title"><?php echo wp_kses_post( $next_title ); ?></span>
-				<span class="arrow">&rarr;</span>
-			</a>
-		</div>
-	<?php
-		}
-	?>
-</div><!-- /.post-navigation -->
-<?php
-endif;
 
 get_footer();
