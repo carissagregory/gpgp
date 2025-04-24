@@ -1,6 +1,3 @@
-/*
- * Created to load game posts on the home/posts page.
- */
 
  <?php
 get_header();
