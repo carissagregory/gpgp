@@ -1,3 +1,24 @@
+.gameCardImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.gameCardInfo,
+.gameCardGoal,
+.gameCardRules,
+.gameCardOther {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.gameCardInfo span,
+.gameCardGoal span,
+.gameCardRules span,
+.gameCardOther span {
+  font-weight: bold;
+}
 .gameGrid {
   display: flex;
   flex-wrap: wrap;
