@@ -39,6 +39,7 @@
 							);
 						endif;
 					?>
+					<!-- <button id="logInButton">Log In</button> -->
 					</div>
 				</div><!-- /.row -->
 			</div><!-- /.container -->

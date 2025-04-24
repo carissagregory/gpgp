@@ -12761,6 +12761,20 @@ p {
   color: #932B28;
 }
 
+@media (max-width: 576px) {
+  #site-header .header-logo img {
+    height: 50px;
+  }
+  #site-header .header-text {
+    text-align: left;
+  }
+  #site-header .header-text h1, #site-header .header-text .h1 {
+    font-size: 3rem;
+  }
+  #site-header .header-text p {
+    font-size: 1.5rem;
+  }
+}
 #footer {
   border-top: 10px solid #932B28;
   background-color: #313768;
@@ -12901,108 +12915,6 @@ p {
 
 #widget-area, #primary-two {
   display: none;
-}
-
-.gameGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.gameCard {
-  color: #313768;
-  padding: 20px;
-  margin: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-@media (min-width: 600px) {
-  .gameCard {
-    width: calc(50% - 30px);
-  }
-}
-@media (min-width: 992px) {
-  .gameCard {
-    width: calc(33.33% - 30px);
-  }
-}
-.gameCardDarkBlue {
-  background-color: #313768;
-  color: #E9E3DA;
-}
-
-.gameCardDarkRed {
-  background-color: #932B28;
-  color: #E9E3DA;
-}
-
-.gameCardGold {
-  background-color: #BB8A3D;
-  color: #313768;
-}
-
-.gameCardLightBlue {
-  background-color: #989CBE;
-  color: #313768;
-}
-
-.gameCardCream {
-  background-color: #E9E3DA;
-  color: #313768;
-}
-
-.gameCardBlack {
-  background-color: #111111;
-  color: #f9f9f9;
-}
-
-.gameCardWhite {
-  background-color: #f9f9f9;
-  color: #111111;
-}
-
-.gameCardDefault {
-  background-color: #e0e0e0;
-  color: #000;
-}
-
-.gameCardTitle {
-  font-family: "Inria Serif", serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #932B28;
-  margin-bottom: 10px;
-}
-
-.gameCardPlayers {
-  font-size: 1rem;
-  color: #313768;
-  margin-bottom: 15px;
-}
-
-.gameCardPlayers span {
-  font-weight: bold;
-}
-
-.gameCardDetails {
-  margin-top: 15px;
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.archive .entry-title {
-  display: none !important;
 }
 
 body {
