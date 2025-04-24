@@ -115,12 +115,20 @@
       text-align: left;
   
       h1 {
-        font-size: 3rem;
+        font-size: 1.5rem;
       }
   
       p {
-        font-size: 1.5rem;
+        font-size: .75rem;
       }
+    }
+  }
+  .header-login {
+
+    .login-button {
+      padding: 5px 10px;
+      font-size: .5rem;
+
     }
   }
 }
