@@ -12933,10 +12933,6 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   display: none;
 }
 
-.tribe-events-event-image img {
-  border-radius: 30px;
-}
-
 .gameCardImage img {
   width: 100%;
   height: auto;
@@ -12974,7 +12970,6 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   margin: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -13070,7 +13065,7 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   display: none !important;
 }
 
-body {
+body.login {
   border-top: 4px solid #932B28;
   background: #BB8A3D;
   background: linear-gradient(180deg, #E9E3DA 0%, #BB8A3D 100%);
