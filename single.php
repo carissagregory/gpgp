@@ -1,40 +1,87 @@
+.gameCardImage {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.gameCardImage img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+}
+
+.gameCardContent {
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 220px;
+  overflow-y: auto;
+  font-family: "Lato", sans-serif;
+}
+
+.gameCardContent p,
+.gameCardContent div {
+  font-family: "Lato", sans-serif;
+}
+
+.gameCard {
+  padding: 0;
+  margin: 0 0 12px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gameCardTitle {
+  text-align: center;
+}
+
 <?php
 get_header();
 
-if ( is_category('game-posts') && have_posts() ) :
-    echo '<div class="container"><div class="row">';
-    while ( have_posts() ) : the_post();
-
-        $color_slug = get_field('game_color');
-        $background_class = $color_slug ? 'gameCard ' . 'gameCard' . ucfirst($color_slug) : 'gameCard gameCardDefault';
-
-        echo '<div class="col-md-6 col-lg-4 mb-4">';
-        echo '<div class="' . esc_attr($background_class) . ' p-3 h-100">';
-
-            if ( has_post_thumbnail() ) {
-                echo '<div class="gameCardImage mb-3">';
-                the_post_thumbnail('medium', ['class' => 'img-fluid']);
-                echo '</div>';
-            }
-
-            echo '<h3 class="gameCardTitle">' . get_the_title() . '</h3>';
-            echo '<p><strong>Players:</strong> ' . get_field('game_players') . '</p>';
-            echo '<p><strong>Info:</strong> ' . get_field('game_info') . '</p>';
-            echo '<p><strong>Goal:</strong> ' . get_field('game_goal') . '</p>';
-            echo '<p><strong>Tools:</strong> ' . get_field('game_tools') . '</p>';
-            echo '<p><strong>Age Range:</strong> ' . get_field('game_age') . '</p>';
-            echo '<p><strong>Difficulty:</strong> ' . get_field('game_difficulty') . '</p>';
-            echo '<div><strong>Rules:</strong> ' . get_field('game_rules') . '</div>';
-            echo '<p><strong>Other:</strong> ' . get_field('game_other') . '</p>';
-            echo '<div>' . get_field('game_description') . '</div>';
-
-        echo '</div></div>';
-
-    endwhile;
-    echo '</div></div>';
-
-else :
-    echo '<p class="text-center">No games found.</p>';
+if ( have_posts() ) :
+  while ( have_posts() ) : the_post(); ?>
+    <article <?php post_class('gameCard'); ?>>
+      <div class="gameCardImage">
+        <?php the_post_thumbnail('medium'); ?>
+      </div>
+      <div class="gameCardContent">
+        <h2 class="gameCardTitle"><?php the_title(); ?></h2>
+        <div class="gameCardMeta">
+          <?php if ( get_field('game_platform') ) : ?>
+            <p class="gameCardPlatform"><span>Platform:</span> <?php the_field('game_platform'); ?></p>
+          <?php endif; ?>
+          <?php if ( get_field('game_players') ) : ?>
+            <p class="gameCardPlayers"><span>Players:</span> <?php the_field('game_players'); ?></p>
+          <?php endif; ?>
+          <?php if ( get_field('game_time') ) : ?>
+            <p class="gameCardTime"><span>Time:</span> <?php the_field('game_time'); ?></p>
+          <?php endif; ?>
+          <?php
+          $difficulty = get_field('game_difficulty');
+          if ($difficulty) {
+              if (is_array($difficulty)) {
+                  echo '<p class="gameCardDifficulty"><span>Difficulty:</span> ' . implode(', ', $difficulty) . '</p>';
+              } else {
+                  echo '<p class="gameCardDifficulty"><span>Difficulty:</span> ' . $difficulty . '</p>';
+              }
+          }
+          ?>
+        </div>
+        <div class="gameCardDescription">
+          <?php the_content(); ?>
+        </div>
+      </div>
+    </article>
+  <?php endwhile;
 endif;
 
 get_footer();

@@ -1,41 +1,46 @@
-<?php
-get_header();
+.gameCardImage {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
 
-if ( is_category('game-posts') && have_posts() ) :
-    echo '<div class="container"><div class="row">';
-    while ( have_posts() ) : the_post();
+.gameCardImage img {
+  border-radius: 0;
+  margin: 0;
+}
 
-        $color_slug = get_field('game_color');
-        $background_class = $color_slug ? 'gameCard ' . 'gameCard' . ucfirst($color_slug) : 'gameCard gameCardDefault';
+.gameCardContent {
+  padding: 8px;
+  margin: 0;
+  border-radius: 0;
+  height: 220px;
+}
 
-        echo '<div class="col-md-6 col-lg-4 mb-4">';
-        echo '<div class="' . esc_attr($background_class) . ' p-3 h-100">';
+.gameCardContent,
+.gameCardContent p,
+.gameCardContent div {
+  font-family: "Lato", sans-serif;
+}
 
-            if ( has_post_thumbnail() ) {
-                echo '<div class="gameCardImage mb-3">';
-                the_post_thumbnail('medium', ['class' => 'img-fluid']);
-                echo '</div>';
-            }
+.gameGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px 6px;
+  margin-top: 0;
+  padding-top: 0;
+}
 
-            echo '<h3 class="gameCardTitle">' . get_the_title() . '</h3>';
-            echo '<p><strong>Players:</strong> ' . get_field('game_players') . '</p>';
-            echo '<p><strong>Info:</strong> ' . get_field('game_info') . '</p>';
-            echo '<p><strong>Goal:</strong> ' . get_field('game_goal') . '</p>';
-            echo '<p><strong>Tools:</strong> ' . get_field('game_tools') . '</p>';
-            echo '<p><strong>Age Range:</strong> ' . get_field('game_age') . '</p>';
-            echo '<p><strong>Difficulty:</strong> ' . get_field('game_difficulty') . '</p>';
-            echo '<div><strong>Rules:</strong> ' . get_field('game_rules') . '</div>';
-            echo '<p><strong>Other:</strong> ' . get_field('game_other') . '</p>';
-            echo '<div>' . get_field('game_description') . '</div>';
+.gameCardTitle {
+  text-align: center;
+}
 
-        echo '</div></div>';
+.gameCard {
+  margin-bottom: 12px;
+  padding: 0;
+}
 
-    endwhile;
-    echo '</div></div>';
-
-else :
-    echo '<p class="text-center">No games found.</p>';
-endif;
-
-get_footer();
-?>
+.gameGrid > [class*='col-'] {
+  padding-right: 3px;
+  padding-left: 3px;
+}
