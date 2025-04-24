@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-if ( have_posts() ) :
+if ( is_category('game-posts') && have_posts() ) :
     echo '<div class="container"><div class="row">';
     while ( have_posts() ) : the_post();
 
@@ -32,6 +32,7 @@ if ( have_posts() ) :
 
     endwhile;
     echo '</div></div>';
+
 else :
     echo '<p class="text-center">No games found.</p>';
 endif;
