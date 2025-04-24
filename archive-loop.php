@@ -7,8 +7,14 @@ if ( have_posts() ) :
     echo '<div class="gameGrid">';
     while ( have_posts() ) : the_post();
 
-        $color_slug = get_field('game_color');
-        $background_class = $color_slug ? 'gameCard' . ucfirst($color_slug) : 'gameCardDefault';
+        $color_slug = trim(get_field('game_color'));
+        $valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
+
+        if (in_array($color_slug, $valid_colors)) {
+            $background_class = 'gameCard gameCard' . ucfirst($color_slug);
+        } else {
+            $background_class = 'gameCard gameCardDefault';
+        }
 
         echo '<div class="gameCard ' . esc_attr($background_class) . '">';
             // Featured image

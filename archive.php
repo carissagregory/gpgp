@@ -1,6 +1,7 @@
-echo '<!-- ARCHIVE TEMPLATE LOADED -->';
-
 <?php
+/*
+ * Created to load game posts on the home/posts page.
+ */
 get_header();
 
 if ( have_posts() ) :

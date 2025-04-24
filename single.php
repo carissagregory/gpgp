@@ -10,6 +10,15 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 
+		$color_slug = trim(get_field('game_color'));
+		$valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
+
+		if (in_array($color_slug, $valid_colors)) {
+		    $background_class = 'gameCard gameCard' . ucfirst($color_slug);
+		} else {
+		    $background_class = 'gameCard gameCardDefault';
+		}
+
 		get_template_part( 'content', 'single' );
 
 		// If comments are open or we have at least one comment, load up the comment template.
