@@ -1,72 +1,32 @@
-.gameGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 0;
-  padding-top: 0;
-}
+<?php
+if ( in_category('games') ) {
+    $color_slug = trim(get_field('game_color'));
+    $valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
 
-.gameCard {
-  color: $darkBlue;
-  padding: 20px;
-  margin: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    if (in_array($color_slug, $valid_colors)) {
+        $background_class = 'gameCard gameCard' . ucfirst($color_slug);
+    } else {
+        $background_class = 'gameCard gameCardDefault';
+    }
 
-@media (min-width: 600px) {
-  .gameCard {
-    width: calc(50% - 30px);
-  }
-}
+    echo '<div class="' . esc_attr($background_class) . '">';
 
-@media (min-width: 992px) {
-  .gameCard {
-    width: calc(33.33% - 30px);
-  }
-}
+    if ( has_post_thumbnail() ) {
+        echo '<div class="gameCardImage">';
+        the_post_thumbnail('medium');
+        echo '</div>';
+    }
 
-.gameCardDarkBlue { background-color: $darkBlue; color: $cream; }
-.gameCardDarkRed { background-color: $darkRed; color: $cream; }
-.gameCardGold { background-color: $gold; color: $darkBlue; }
-.gameCardLightBlue { background-color: $lightBlue; color: $darkBlue; }
-.gameCardCream { background-color: $cream; color: $darkBlue; }
-.gameCardBlack { background-color: #111111; color: #f9f9f9; }
-.gameCardWhite { background-color: #f9f9f9; color: #111111; }
-.gameCardDefault { background-color: #e0e0e0; color: #000; }
+    echo '<h2 class="gameCardTitle">' . get_the_title() . '</h2>';
+    echo '<div class="gameCardPlayers"><span>Players:</span> ' . get_field('game_players') . '</div>';
+    echo '<div class="gameCardInfo"><span>Info:</span> ' . get_field('game_info') . '</div>';
+    echo '<div class="gameCardGoal"><span>Goal:</span> ' . get_field('game_goal') . '</div>';
+    echo '<div class="gameCardRules"><span>Rules:</span> ' . get_field('game_rules') . '</div>';
+    echo '<div class="gameCardOther"><span>Other:</span> ' . get_field('game_other') . '</div>';
+    echo '<div class="gameCardDetails">' . get_field('game_description') . '</div>';
 
-.gameCardTitle {
-  
-  font-family: "Inria Serif", serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: $darkRed;
-  margin-bottom: 10px;
+    echo '</div>';
+} else {
+    get_template_part( 'content', 'single' );
 }
-
-.gameCardPlayers {
-  font-size: 1rem;
-  color: $darkBlue;
-  margin-bottom: 15px;
-}
-
-.gameCardPlayers span {
-  font-weight: bold;
-}
-
-.gameCardDetails {
-  margin-top: 15px;
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-}
-.archive .entry-title {
-  display: none !important;
-}
+?>
