@@ -4,6 +4,7 @@
  */
 
 if ( have_posts() ) :
+    echo '<div class="gameGrid">';
     while ( have_posts() ) : the_post();
 
         $color_slug = get_field('game_color');
@@ -16,6 +17,7 @@ if ( have_posts() ) :
         echo '</div>';
 
     endwhile;
+    echo '</div>';
 else :
     echo '<p>No posts found.</p>';
 endif;
