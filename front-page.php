@@ -21,7 +21,10 @@ the_post();
 				</div><!--aboutImg close-->
 			</div><!--mainDiv close--> 
 			<div class="row" id="gameDisplay">
-				<p>Games</p>
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<?php endwhile; else : ?>
+					<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<?php endif; ?>
 			</div><!--gameDisplay close-->
 	 <!--</div> /.col -->
  </div><!-- /.row -->
