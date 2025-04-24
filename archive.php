@@ -1,16 +1,7 @@
+
+
 <?php
-/*
- * Created to load game posts on the home/posts page.
- */
 get_header();
-
-if ( have_posts() ) :
-    while ( have_posts() ) : the_post();
-        echo '<h2>' . get_the_title() . '</h2>';
-    endwhile;
-else :
-    echo '<p>No posts found.</p>';
-endif;
-
+get_template_part('archive', 'loop');
 get_footer();
 ?>

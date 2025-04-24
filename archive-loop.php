@@ -1,14 +1,7 @@
 <?php
-/**
- * The template for displaying all single posts
- */
-
-get_header();
-
-while ( have_posts() ) :
-    the_post();
-
-    if ( in_category('games') ) {
+if ( have_posts() ) :
+    echo '<div class="gameGrid">';
+    while ( have_posts() ) : the_post();
         $color_slug = trim(get_field('game_color'));
         $valid_colors = ['darkBlue', 'darkRed', 'gold', 'lightBlue', 'cream', 'black', 'white'];
 
@@ -35,11 +28,9 @@ while ( have_posts() ) :
         echo '<div class="gameCardDetails">' . get_field('game_description') . '</div>';
 
         echo '</div>';
-    } else {
-        get_template_part( 'content', 'single' );
-    }
-
-endwhile;
-
-get_footer();
+    endwhile;
+    echo '</div>';
+else :
+    echo '<p>No games found.</p>';
+endif;
 ?>

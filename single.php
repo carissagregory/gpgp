@@ -1,5 +1,4 @@
 <?php
-echo '<div style="background: yellow; padding: 20px; font-size: 24px;">single.php is connected</div>';
 /**
  * The Template for displaying all single posts.
  */
