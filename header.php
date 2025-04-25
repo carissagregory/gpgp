@@ -10,15 +10,16 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <header id="site-header">
-  <div class="header-logo">
-    <a href="<?php echo esc_url(home_url()); ?>">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/GPGPlogo.gif" alt="<?php bloginfo('name'); ?>">
-    </a>
-  </div>
-
-  <div class="header-text">
-    <h1>GREAT PLAINS GAME PLAYERS</h1>
-    <p>a social group with a gaming problem</p>
+  <div class="header-left">
+    <div class="header-logo">
+      <a href="<?php echo esc_url(home_url()); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/GPGPlogo.gif" alt="<?php bloginfo('name'); ?>">
+      </a>
+    </div>
+    <div class="header-text">
+      <h1>GREAT PLAINS GAME PLAYERS</h1>
+      <p>a social group with a gaming problem</p>
+    </div>
   </div>
 
   <div class="header-login">

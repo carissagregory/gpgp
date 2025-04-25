@@ -12708,16 +12708,27 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   justify-content: space-between;
   align-items: center;
 }
+#site-header .header-left {
+  display: flex;
+  align-items: center;
+}
+#site-header .header-left .header-text {
+  margin-left: 20px;
+}
 #site-header .header-logo {
   display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 #site-header .header-logo img {
   height: 120px;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 #site-header .header-text {
   color: #E9E3DA;
   text-align: left;
-  margin-left: 20px;
 }
 #site-header .header-text h1, #site-header .header-text .h1 {
   margin: 0;
@@ -12737,25 +12748,35 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  margin-top: 10px;
 }
 #site-header .header-login form.search-form input[type=search] {
   padding: 5px;
   border-radius: 5px;
   border: none;
   font-size: 1rem;
+  font-family: "Inria Serif", serif;
+  font-size: 0.85rem;
+}
+#site-header .header-login form.search-form input[type=search]::-moz-placeholder {
+  color: transparent;
+}
+#site-header .header-login form.search-form input[type=search]::placeholder {
+  color: transparent;
 }
 #site-header .header-login form.search-form input[type=submit] {
   display: none;
 }
 #site-header .header-login .login-button {
   background-color: #BB8A3D;
-  color: #000;
+  color: #f9f9f9;
   padding: 5px 10px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  font-family: "Inria Serif", serif;
   transition: background-color 0.3s ease;
 }
 #site-header .header-login .login-button:hover {
@@ -12767,6 +12788,7 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   width: 100%;
   background-color: #989CBE;
   padding: 10px 0;
+  margin-bottom: 1rem;
 }
 .nav-wrapper .main-nav {
   display: flex;
@@ -12798,8 +12820,15 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
 }
 
 @media (max-width: 576px) {
+  #site-header .header-logo {
+    margin: 0;
+    padding: 0;
+  }
   #site-header .header-logo img {
     height: 50px;
+    margin: 0;
+    padding: 0;
+    display: block;
   }
   #site-header .header-text {
     text-align: left;
