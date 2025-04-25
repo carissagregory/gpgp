@@ -17,11 +17,12 @@
   </div>
 
   <div class="header-text">
-    <h1>GREAT PLAINS Game Players</h1>
+    <h1>GREAT PLAINS GAME PLAYERS</h1>
     <p>a social group with a gaming problem</p>
   </div>
 
   <div class="header-login">
+    <?php get_search_form(); ?>
     <a href="/login" class="login-button">Log In</a> 
   </div>
 </header>
