@@ -5,6 +5,32 @@
  *
  * @since v1.0
  */
+
+//function for login stylesheet
+function gpgp_theme_custom_login_stylesheet() {
+	wp_enqueue_style(
+		'gpgp-login-style',
+		get_stylesheet_directory_uri() . '/build/main.css',
+		false,
+		'1.0',
+		'all'
+	);
+}
+add_action( 'login_enqueue_scripts', 'gpgp_theme_custom_login_stylesheet' );
+function gpgp_custom_login_logo_bar() {
+	echo '<div class="login-header-logo"><img src="' . get_stylesheet_directory_uri() . '/assets/images/GPGPlogo.gif" alt="GPGP Site Logo"></div>';
+}
+add_action( 'login_head', 'gpgp_custom_login_logo_bar' );
+function gpgp_custom_login_footer_message() {
+	?>
+	<div class="custom-login-footer">
+		<p id="copyright"><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'gpgp-theme' ), wp_date( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
+	</div>
+	<?php
+}
+add_action( 'login_footer', 'gpgp_custom_login_footer_message' );
+
+
 $theme_customizer = __DIR__ . '/inc/customizer.php';
 if ( is_readable( $theme_customizer ) ) {
 	require_once $theme_customizer;

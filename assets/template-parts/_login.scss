@@ -1,0 +1,94 @@
+body.login {
+    border-top: 4px solid $darkRed;
+    background: $gold;
+    background: linear-gradient(180deg,$cream 0%, $gold 100%);
+    border-bottom: 100px solid $darkBlue;
+}
+
+//header and footer
+body.login::before {
+	content: "";
+	display: block;
+	height: 100px;
+	background-color: $darkBlue;
+}
+
+.login-header-logo {
+	position: absolute;
+	top: 25px;
+	left: 20px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.login-header-logo img {
+	height: 75px;
+	width: auto;
+}
+
+body.login::after {
+	content: "";
+	display: block;
+	height: 5px;
+	background-color: $darkRed;
+	position: fixed;
+	bottom: 100px;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.custom-login-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 35px;
+    text-align: center;
+    #copyright {
+        color: white;
+    }
+}
+
+body.login div#login h1 a {
+    display: none !important;
+}
+
+//form styling
+body.login div#login form#loginform {
+    background-color: $darkBlue;
+    border-radius: 20px;
+}
+
+body.login div#login form#loginform p label {
+    color: white;
+    font-size: 20px;
+}
+
+.user-pass-wrap label {
+    color: white;
+    font-size: 20px;
+}
+
+body.login div#login form#loginform input {
+    border-radius: 20px;
+}
+
+.submit #wp-submit {
+    background-color: $gold;
+    border: none;
+    font-size: 16px;
+}
+
+.submit #wp-submit:hover {
+    background-color: $cream;
+    color: black;
+}
+
+#nav a.wp-login-lost-password {
+    color: black;
+}
+
+body.login div#login p#backtoblog a {
+    color: black;
+}
