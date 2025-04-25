@@ -12656,6 +12656,12 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   font-style: normal;
 }
 
+.gameCardTitle {
+  color: #932B28;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Inria Serif", serif;
   font-weight: 400;
@@ -12684,6 +12690,12 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   font-family: "Inria Serif", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.gameCardTitle {
+  color: #932B28;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
 #site-header {
@@ -12721,22 +12733,34 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   color: #E9E3DA;
 }
 #site-header .header-login {
-  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+#site-header .header-login form.search-form input[type=search] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+#site-header .header-login form.search-form input[type=submit] {
+  display: none;
 }
 #site-header .header-login .login-button {
   background-color: #BB8A3D;
-  color: #E9E3DA;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: "Lato", sans-serif;
+  color: #000;
+  padding: 5px 10px;
   font-size: 1rem;
-  font-weight: bold;
+  border: none;
   border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
   transition: background-color 0.3s ease;
-  display: inline-block;
 }
 #site-header .header-login .login-button:hover {
   background-color: #932B28;
+  color: #fff;
 }
 
 .nav-wrapper {
@@ -12785,10 +12809,6 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   }
   #site-header .header-text p {
     font-size: 0.75rem;
-  }
-  .header-login .login-button {
-    padding: 5px 10px;
-    font-size: 0.5rem;
   }
 }
 #footer {
@@ -12933,72 +12953,152 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   display: none;
 }
 
+.gameCard {
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.gameCardImage {
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 0;
+}
+
 .gameCardImage img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: auto;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.gameCardContent {
+  margin-top: 0;
+  padding-top: 0;
+  background-color: #f9f9f9;
+  color: #000;
+  padding: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 220px;
+  overflow-y: auto;
+}
+
+.gameCardMeta p {
+  margin: 0 10px 0 0;
 }
 
 .gameCardInfo,
 .gameCardGoal,
+.gameCardTools,
 .gameCardRules,
-.gameCardOther {
-  font-size: 1rem;
+.gameCardOther,
+.gameCardDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
   margin-bottom: 10px;
 }
 
+.gameCardInfo:empty,
+.gameCardGoal:empty,
+.gameCardTools:empty,
+.gameCardRules:empty,
+.gameCardOther:empty,
+.gameCardDescription:empty {
+  display: none;
+}
+
+.gameCardPlayers span,
 .gameCardInfo span,
 .gameCardGoal span,
 .gameCardRules span,
-.gameCardOther span {
+.gameCardOther span,
+.gameCardTools span,
+.gameCardDescription span,
+.gameCardAge span,
+.gameCardTime span,
+.gameCardDifficulty span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #555555;
+  letter-spacing: 0.5px;
   font-weight: bold;
+  line-height: 1;
+  font-family: "Lato", sans-serif;
 }
 
-.gameGrid {
+.gameCardRules {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 0;
-  padding-top: 0;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 10px;
 }
 
-.gameCard {
-  color: #313768;
-  padding: 20px;
-  margin: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.gameCardRules span {
+  margin-right: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #555555;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: "Lato", sans-serif;
+  display: inline-block;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.gameCardRules p {
+  margin: 0;
+  padding-left: 0;
+  display: inline-block;
+  word-break: break-word;
+}
+
+.gameCardRules {
+  white-space: pre-line;
+}
+
+.gameGrid > [class*=col-] {
+  padding-left: 10px;
+  padding-right: 10px;
   margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-@media (min-width: 600px) {
-  .gameCard {
-    width: calc(50% - 30px);
-  }
+.container {
+  max-width: 100%;
 }
-@media (min-width: 992px) {
-  .gameCard {
-    width: calc(33.33% - 30px);
-  }
-}
+
 .gameCardDarkBlue {
   background-color: #313768;
-  color: #E9E3DA;
-}
-
-.gameCardDarkRed {
-  background-color: #932B28;
   color: #E9E3DA;
 }
 
 .gameCardGold {
   background-color: #BB8A3D;
   color: #313768;
+}
+
+.gameCardDarkRed {
+  background-color: #932B28;
+  color: #E9E3DA;
 }
 
 .gameCardLightBlue {
@@ -13027,41 +13127,14 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
 }
 
 .gameCardTitle {
-  font-family: "Inria Serif", serif;
+  margin-top: 0;
   font-size: 1.8rem;
   font-weight: bold;
   color: #932B28;
-  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
-.gameCardPlayers {
-  font-size: 1rem;
-  color: #313768;
-  margin-bottom: 15px;
-}
-
-.gameCardPlayers span {
-  font-weight: bold;
-}
-
-.gameCardDetails {
-  margin-top: 15px;
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.gameCardPlayers,
-.gameCardInfo,
-.gameCardGoal,
-.gameCardRules,
-.gameCardOther,
-.gameCardDetails {
-  font-family: "Lato", sans-serif;
-}
-
-.archive .entry-title {
+body.category-game-posts .page-title {
   display: none !important;
 }
 

@@ -1,5 +1,6 @@
 <?php
 if ( is_category('game-posts') && have_posts() ) :
+    // Remove the category title from this page
     echo '<div class="container"><div class="row gameGrid">';
     while ( have_posts() ) : the_post();
 
@@ -13,6 +14,7 @@ if ( is_category('game-posts') && have_posts() ) :
         if ( has_post_thumbnail() ) {
             the_post_thumbnail('medium', ['class' => 'img-fluid']);
         } else {
+            // Empty image box with cream-colored placeholder
             echo '<div style="background-color: #E9E3DA; width: 100%; height: 150px; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>';
         }
         echo '</div>';
@@ -21,11 +23,13 @@ if ( is_category('game-posts') && have_posts() ) :
         echo '<h3 class="gameCardTitle">' . get_the_title() . '</h3>';
 
         echo '<div class="gameCardMeta">';
-        echo '<p class="gameCardPlayers"><span>Players:</span> ' . get_field('game_players') . '</p>';
-        if ( get_field('game_age') ) {
+        if ( get_field('game_players') && trim(get_field('game_players')) !== '' ) {
+            echo '<p class="gameCardPlayers"><span>Players:</span> ' . get_field('game_players') . '</p>';
+        }
+        if ( get_field('game_age') && trim(get_field('game_age')) !== '' ) {
             echo '<p class="gameCardAge"><span>Age Range:</span> ' . get_field('game_age') . '</p>';
         }
-        if ( get_field('game_time') ) {
+        if ( get_field('game_time') && trim(get_field('game_time')) !== '' ) {
             echo '<p class="gameCardTime"><span>Time:</span> ' . get_field('game_time') . '</p>';
         }
         $difficulty = get_field('game_difficulty');
@@ -38,25 +42,27 @@ if ( is_category('game-posts') && have_posts() ) :
         }
         echo '</div>';
 
-        if ( get_field('game_info') ) {
+        if ( get_field('game_info') && trim(get_field('game_info')) !== '' ) {
             echo '<p class="gameCardInfo"><span>Info:</span> ' . get_field('game_info') . '</p>';
         }
-        if ( get_field('game_goal') ) {
+
+        if ( get_field('game_goal') && trim(get_field('game_goal')) !== '' ) {
             echo '<p class="gameCardGoal"><span>Goal:</span> ' . get_field('game_goal') . '</p>';
         }
-        if ( get_field('game_tools') ) {
+
+        if ( get_field('game_tools') && trim(get_field('game_tools')) !== '' ) {
             echo '<p class="gameCardTools"><span>Tools:</span> ' . get_field('game_tools') . '</p>';
         }
 
-        if ( get_field('game_rules') ) {
+        if ( get_field('game_rules') && trim(get_field('game_rules')) !== '' ) {
             echo '<p class="gameCardRules"><span>Rules:</span> ' . get_field('game_rules') . '</p>';
         }
 
-        if ( get_field('game_description') ) {
-            echo '<div class="gameCardDetails">' . get_field('game_description') . '</div>';
+        if ( get_field('game_description') && trim(get_field('game_description')) !== '' ) {
+            echo '<p class="gameCardDescription"><span>Description:</span> ' . get_field('game_description') . '</p>';
         }
 
-        if ( get_field('game_other') ) {
+        if ( get_field('game_other') && trim(get_field('game_other')) !== '' ) {
             echo '<p class="gameCardOther"><span>Other:</span> ' . get_field('game_other') . '</p>';
         }
 
@@ -66,6 +72,9 @@ if ( is_category('game-posts') && have_posts() ) :
     endwhile;
     echo '</div></div>'; // Close grid and container
 else :
+    if ( !is_category('game-posts') ) {
+        echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>';
+    }
     echo '<p class="text-center">No games found.</p>';
 endif;
 ?>

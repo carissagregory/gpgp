@@ -1,11 +1,16 @@
-.gameCardImage img.img-fluid {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block;
+.gameCard {
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .gameCardImage {
-  margin: 0;
+  margin-bottom: 0;
   padding: 0;
   line-height: 0;
 }
@@ -24,88 +29,95 @@
   border-bottom-right-radius: 0;
 }
 
-.gameCard {
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  margin: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.gameCardInfo,
-.gameCardGoal,
-.gameCardRules,
-.gameCardOther {
-  font-size: 1rem;
-}
-
-.gameCardPlayers span,
-.gameCardAge span,
-.gameCardTime span,
-.gameCardDifficulty span,
-.gameCardMeta span,
-.gameCardInfo span,
-.gameCardGoal span,
-.gameCardRules span,
-.gameCardOther span,
-.gameCardTools span {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: $darkGray;
-  letter-spacing: 0.5px;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.archive .entry-title {
-  display: none !important;
-}
-
-body.category-game-posts .page-title {
-  display: none;
-}
-
-body.category-game-posts .page-title,
-body.category-game-posts .entry-title {
-  display: none;
-}
-
 .gameCardContent {
+  margin-top: 0;
+  padding-top: 0;
   background-color: $white;
   color: #000;
   padding: 8px;
-  padding-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   height: 220px;
   overflow-y: auto;
-  margin-top: 0;
-}
-
-.gameCardContent p {
-  margin-top: 0;
-  margin-bottom: 5px;
 }
 
 .gameCardMeta p {
   margin: 0 10px 0 0;
 }
 
-.gameCardTitle {
-  color: $darkRed;
-  text-align: left;
-  font-size: 1.8rem;
+.gameCardInfo,
+.gameCardGoal,
+.gameCardTools,
+.gameCardRules,
+.gameCardOther,
+.gameCardDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
-.gameGrid {
+.gameCardInfo:empty,
+.gameCardGoal:empty,
+.gameCardTools:empty,
+.gameCardRules:empty,
+.gameCardOther:empty,
+.gameCardDescription:empty {
+  display: none;
+}
+
+.gameCardPlayers span,
+.gameCardInfo span,
+.gameCardGoal span,
+.gameCardRules span,
+.gameCardOther span,
+.gameCardTools span,
+.gameCardDescription span,
+.gameCardAge span,
+.gameCardTime span,
+.gameCardDifficulty span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: $darkGray;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+}
+
+.gameCardRules {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.gameCardRules span {
+  margin-right: 8px; 
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: $darkGray;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: 'Lato', sans-serif;
+  display: inline-block;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.gameCardRules p {
   margin: 0;
+  padding-left: 0;
+  display: inline-block;
+  word-break: break-word;
+}
+
+.gameCardRules {
+  white-space: pre-line;
 }
 
 .gameGrid > [class*='col-'] {
@@ -118,42 +130,23 @@ body.category-game-posts .entry-title {
   max-width: 100%;
 }
 
-.gameCardDarkBlue {
-  background-color: $darkBlue;
-  color: $cream;
+.gameCardDarkBlue { background-color: $darkBlue; color: $cream; }
+.gameCardGold { background-color: $gold; color: $darkBlue; }
+.gameCardDarkRed { background-color: $darkRed; color: $cream; }
+.gameCardLightBlue { background-color: $lightBlue; color: $darkBlue; }
+.gameCardCream { background-color: $cream; color: $darkBlue; }
+.gameCardBlack { background-color: $black; color: $white; }
+.gameCardWhite { background-color: $white; color: $black; }
+.gameCardDefault { background-color: $defaultGray; color: #000; }
+
+.gameCardTitle {
+  margin-top: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $darkRed;
+  line-height: 1.2;
 }
 
-.gameCardGold {
-  background-color: $gold;
-  color: $darkBlue;
-}
-
-.gameCardDarkRed {
-  background-color: $darkRed;
-  color: $cream;
-}
-
-.gameCardLightBlue {
-  background-color: $lightBlue;
-  color: $darkBlue;
-}
-
-.gameCardCream {
-  background-color: $cream;
-  color: $darkBlue;
-}
-
-.gameCardBlack {
-  background-color: $black;
-  color: $white;
-}
-
-.gameCardWhite {
-  background-color: $white;
-  color: $black;
-}
-
-.gameCardDefault {
-  background-color: $defaultGray;
-  color: #000;
+body.category-game-posts .page-title {
+  display: none !important;
 }
