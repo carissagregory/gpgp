@@ -31,6 +31,67 @@ function gpgp_custom_login_footer_message() {
 add_action( 'login_footer', 'gpgp_custom_login_footer_message' );
 
 
+add_action('acf/save_post', 'gpgp_custom_save_event', 20);
+function gpgp_custom_save_event($post_id) {
+    // Only run for tribe_events
+    if (get_post_type($post_id) !== 'tribe_events') return;
+
+    // Skip ACF autosave
+    if (strpos($post_id, 'acf') === 0) return;
+
+    // Get ACF fields
+    $event_name   = get_field('event_name', $post_id);
+    $start_date   = get_field('event_start_date', $post_id);
+    $end_date     = get_field('event_end_date', $post_id);
+
+    if ($event_name) {
+        wp_update_post([
+            'ID'         => $post_id,
+            'post_title' => $event_name,
+            'post_name'  => sanitize_title($event_name),
+            'post_status'=> 'publish',
+        ]);
+    }
+
+    if ($start_date) {
+        $start_date_formatted = date('Y-m-d H:i:s', strtotime($start_date));
+        update_post_meta($post_id, '_EventStartDate', $start_date_formatted);
+
+        // Also update post_date
+        wp_update_post([
+            'ID'            => $post_id,
+            'post_date'     => $start_date_formatted,
+            'post_date_gmt' => get_gmt_from_date($start_date_formatted),
+        ]);
+    }
+
+    if ($end_date) {
+        $end_date_formatted = date('Y-m-d H:i:s', strtotime($end_date));
+        update_post_meta($post_id, '_EventEndDate', $end_date_formatted);
+    } elseif ($start_date) {
+        update_post_meta($post_id, '_EventEndDate', $start_date_formatted);
+    }
+
+    update_post_meta($post_id, '_EventTimezone', 'America/Chicago');
+
+}
+add_action('acf/save_post', 'redirect_after_acf_form_submission', 20);
+
+function redirect_after_acf_form_submission($post_id) {
+    // Avoid running on autosave or when ACF form is being saved (avoid infinite loop)
+    if (strpos($post_id, 'acf') === 0) return;
+
+    // Make sure we are dealing with the 'tribe_events' post type
+    if (get_post_type($post_id) !== 'tribe_events') return;
+
+    // Get the URL for the edit screen of the event
+    $edit_url = admin_url('post.php?post=' . $post_id . '&action=edit');
+
+    // Redirect to the edit event page after saving
+    wp_redirect($edit_url);
+    exit; // Always call exit after wp_redirect to stop further script execution
+}
+
 $theme_customizer = __DIR__ . '/inc/customizer.php';
 if ( is_readable( $theme_customizer ) ) {
 	require_once $theme_customizer;
