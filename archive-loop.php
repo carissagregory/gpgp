@@ -1,21 +1,25 @@
 <?php
-if ( is_category('game-posts') && have_posts() ) :
-    // Remove the category title from this page
-    echo '<div class="container"><div class="row gameGrid">';
-    while ( have_posts() ) : the_post();
+if (is_category('game-posts') && have_posts()) :
 
-        $color_slug = get_field('game_color');
-        $background_class = $color_slug ? 'gameCard ' . 'gameCard' . ucfirst($color_slug) : 'gameCard gameCardDefault';
+    echo '<div class="container">';
+
+    get_template_part('archive-carousel'); // assuming archive-carousel.php is saved in theme root
+
+    echo '<div class="row gameGrid">';
+    
+    while (have_posts()) : the_post();
+
+        $colorSlug = get_field('game_color');
+        $backgroundClass = $colorSlug ? 'gameCard gameCard' . ucfirst($colorSlug) : 'gameCard gameCardDefault';
 
         echo '<div class="col-12 col-sm-6 col-lg-4">';
-        echo '<div class="' . esc_attr($background_class) . ' h-100">';
+        echo '<div class="' . esc_attr($backgroundClass) . ' h-100">';
 
         echo '<div class="gameCardImage">';
-        if ( has_post_thumbnail() ) {
+        if (has_post_thumbnail()) {
             the_post_thumbnail('medium', ['class' => 'img-fluid']);
         } else {
-            // Empty image box with cream-colored placeholder
-            echo '<div style="background-color: #E9E3DA; width: 100%; height: 150px; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>';
+            echo '<div style="background-color:#E9E3DA;width:100%;height:150px;border-top-left-radius:8px;border-top-right-radius:8px;"></div>';
         }
         echo '</div>';
 
@@ -23,58 +27,87 @@ if ( is_category('game-posts') && have_posts() ) :
         echo '<h3 class="gameCardTitle">' . get_the_title() . '</h3>';
 
         echo '<div class="gameCardMeta">';
-        if ( get_field('game_players') && trim(get_field('game_players')) !== '' ) {
-            echo '<p class="gameCardPlayers"><span>Players:</span> ' . get_field('game_players') . '</p>';
+
+        if ($field = get_field('game_number')) {
+            echo '<p class="gameCardNumber"><span>No:</span> ' . esc_html($field) . '</p>';
         }
-        if ( get_field('game_age') && trim(get_field('game_age')) !== '' ) {
-            echo '<p class="gameCardAge"><span>Age Range:</span> ' . get_field('game_age') . '</p>';
+        if ($field = get_field('game_time')) {
+            echo '<p class="gameCardTime"><span>Time:</span> ' . esc_html($field) . '</p>';
         }
-        if ( get_field('game_time') && trim(get_field('game_time')) !== '' ) {
-            echo '<p class="gameCardTime"><span>Time:</span> ' . get_field('game_time') . '</p>';
+        if ($field = get_field('game_age')) {
+            echo '<p class="gameCardAge"><span>Age:</span> ' . esc_html($field) . '</p>';
         }
-        $difficulty = get_field('game_difficulty');
-        if ($difficulty) {
-            if (is_array($difficulty)) {
-                echo '<p class="gameCardDifficulty"><span>Difficulty:</span> ' . implode(', ', $difficulty) . '</p>';
-            } else {
-                echo '<p class="gameCardDifficulty"><span>Difficulty:</span> ' . $difficulty . '</p>';
-            }
+        if ($field = get_field('game_level')) {
+            $levelOutput = is_array($field) ? implode(', ', $field) : $field;
+            echo '<p class="gameCardLevel"><span>Level:</span> ' . esc_html($levelOutput) . '</p>';
         }
+
         echo '</div>';
 
-        if ( get_field('game_info') && trim(get_field('game_info')) !== '' ) {
-            echo '<p class="gameCardInfo"><span>Info:</span> ' . get_field('game_info') . '</p>';
+        if ($field = get_field('game_info')) {
+            echo '<p class="gameCardInfo"><span>Info:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_goal')) {
+            echo '<p class="gameCardGoal"><span>Goal:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_tools')) {
+            echo '<p class="gameCardTools"><span>Tools:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_rules')) {
+            echo '<p class="gameCardRules"><span>Rules:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_description')) {
+            echo '<p class="gameCardDescription"><span>Desc:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_other')) {
+            echo '<p class="gameCardOther"><span>Other:</span> ' . esc_html($field) . '</p>';
+        }
+        if ($field = get_field('game_more')) {
+            echo '<p class="gameCardMore"><span>More:</span> ' . esc_html($field) . '</p>';
         }
 
-        if ( get_field('game_goal') && trim(get_field('game_goal')) !== '' ) {
-            echo '<p class="gameCardGoal"><span>Goal:</span> ' . get_field('game_goal') . '</p>';
-        }
-
-        if ( get_field('game_tools') && trim(get_field('game_tools')) !== '' ) {
-            echo '<p class="gameCardTools"><span>Tools:</span> ' . get_field('game_tools') . '</p>';
-        }
-
-        if ( get_field('game_rules') && trim(get_field('game_rules')) !== '' ) {
-            echo '<p class="gameCardRules"><span>Rules:</span> ' . get_field('game_rules') . '</p>';
-        }
-
-        if ( get_field('game_description') && trim(get_field('game_description')) !== '' ) {
-            echo '<p class="gameCardDescription"><span>Description:</span> ' . get_field('game_description') . '</p>';
-        }
-
-        if ( get_field('game_other') && trim(get_field('game_other')) !== '' ) {
-            echo '<p class="gameCardOther"><span>Other:</span> ' . get_field('game_other') . '</p>';
-        }
-
-        echo '</div>'; // Close gameCardContent
-        echo '</div></div>'; // Close gameCard and column
+        echo '</div>';
+        echo '</div></div>';
 
     endwhile;
-    echo '</div></div>'; // Close grid and container
+
+    echo '</div></div>'; // close row and container
+
 else :
-    if ( !is_category('game-posts') ) {
-        echo '<h1 class="page-title">' . single_cat_title( '', false ) . '</h1>';
+
+    if (!is_category('game-posts')) {
+        echo '<h1 class="page-title">' . single_cat_title('', false) . '</h1>';
     }
     echo '<p class="text-center">No games found.</p>';
+
 endif;
 ?>
+
+<?php // this needs to go in header.php if it works ?>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+    480: {
+      slidesPerView: 1,
+    }
+  }
+});
+</script>
