@@ -1,11 +1,12 @@
 <?php
 /**
- * The template for displaying search forms.
+ * template for displaying search forms
  */
 ?>
 <form class="search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<div class="input-group">
-		<input type="text" name="s" class="form-control" placeholder="<?php esc_attr_e( 'Search', 'gpgp-theme' ); ?>" />
-		<button type="submit" class="btn btn-secondary" name="submit"><?php esc_html_e( 'Search', 'gpgp-theme' ); ?></button>
-	</div><!-- /.input-group -->
+  <input type="search" name="s" class="search-field" placeholder="Search..." value="<?php echo get_search_query(); ?>" />
+  <button type="submit" class="search-submit" aria-label="Search">
+    <span class="search-text">search</span>
+    <span class="search-icon" aria-hidden="true">🔍</span>
+  </button>
 </form>

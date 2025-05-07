@@ -1,6 +1,48 @@
 @import 'variables';
 @import 'font';
 
+form.search-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  input[type="search"] {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-family: "Inria Serif", serif;
+  }
+
+  input[type="search"]::placeholder {
+    color: transparent;
+  }
+
+  button.search-submit {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: $cream;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button.search-submit .search-text {
+    display: inline;
+  }
+
+  button.search-submit .search-icon {
+    display: none;
+  }
+}
+
 #site-header {
   background-color: $darkBlue !important;
   color: $cream;
@@ -61,22 +103,9 @@
     margin-top: 10px;
 
     form.search-form {
-      input[type="search"] {
-        padding: 5px;
-        border-radius: 5px;
-        border: none;
-        font-size: 1rem;
-        font-family: "Inria Serif", serif;
-        font-size: 0.85rem;
-      }
-
-      input[type="search"]::placeholder {
-        color: transparent;
-      }
-
-      input[type="submit"] {
-        display: none;
-      }
+      width: 100%;
+      display: flex;
+      align-items: center;
     }
 
     .login-button {
@@ -143,10 +172,10 @@
 
 @media (max-width: 576px) {
   #site-header {
-  
     .header-logo {
       margin: 0;
       padding: 0;
+
       img {
         height: 50px;
         margin: 0;
@@ -154,16 +183,62 @@
         display: block;
       }
     }
+
     .header-text {
       text-align: left;
-  
+
       h1 {
         font-size: 1.5rem;
       }
-  
+
       p {
         font-size: .75rem;
       }
     }
+  }
+
+  form.search-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    input[type="search"] {
+      width: 0;
+      padding: 0;
+      border: none;
+      background: none;
+      color: transparent;
+      transition: width 0.3s ease;
+    }
+
+    button.search-submit {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      font-size: 1.5rem;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+
+    button.search-submit .search-text {
+      display: none;
+    }
+
+    button.search-submit .search-icon {
+      display: inline;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  form.search-form:hover input[type="search"],
+  form.search-form input[type="search"]:focus {
+    width: 150px;
+    padding: 5px;
+    background: $darkBlue;
+    color: $cream;
+    border: 1px solid $cream;
   }
 }

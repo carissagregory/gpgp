@@ -4,7 +4,6 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/build/main.min.css">
-
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -24,7 +23,7 @@
 
   <div class="header-login">
     <?php get_search_form(); ?>
-    <a href="/login" class="login-button">Log In</a> 
+    <a href="/login" class="login-button">Log In</a>
   </div>
 </header>
 
@@ -33,15 +32,12 @@
     <?php
       wp_nav_menu(array(
         'theme_location' => 'main-menu',
-        'menu_class' => 'nav-links', 
-        'container' => false, 
-        'fallback_cb' => false 
+        'menu_class' => 'nav-links',
+        'container' => false,
+        'fallback_cb' => false
       ));
     ?>
   </nav>
 </div>
 
 <main id="main-content">
-</main>
-</body>
-</html>
