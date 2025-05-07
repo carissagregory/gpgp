@@ -12662,6 +12662,17 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   font-size: 1.8rem;
 }
 
+#acf-form .acf-label, #acf-form .acf-button {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#acf-form .acf-input .acf-input-wrap {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Inria Serif", serif;
   font-weight: 400;
@@ -12696,6 +12707,17 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   color: #932B28;
   font-weight: bold;
   font-size: 1.8rem;
+}
+
+#acf-form .acf-label, #acf-form .acf-button {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#acf-form .acf-input .acf-input-wrap {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #site-header {
@@ -13258,6 +13280,37 @@ body.login div#login form#loginform input {
 
 body.login div#login p#backtoblog a {
   color: black;
+}
+
+.acf-form-container {
+  margin-bottom: 10px;
+}
+.acf-form-container #acf-form {
+  background-color: #313768;
+  border-radius: 20px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.acf-form-container #acf-form .acf-field {
+  border: none;
+}
+.acf-form-container #acf-form .acf-field input[type=text], .acf-form-container #acf-form .acf-field input[type=date], .acf-form-container #acf-form .acf-field input[type=datetime], .acf-form-container #acf-form .acf-field input[type=datetime-local] {
+  background-color: #E9E3DA;
+  border: none;
+}
+.acf-form-container #acf-form .acf-field .acf-label {
+  color: white;
+}
+.acf-form-container #acf-form .acf-field .acf-input .acf-input-wrap {
+  border-radius: 30px;
+}
+.acf-form-container #acf-form .acf-button {
+  background-color: #BB8A3D;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  color: white;
 }
 
 body {

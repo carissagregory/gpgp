@@ -3,6 +3,7 @@
 //Lato Font
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+//Global Font Styling
 h1, h2, h3, h4, h5, h6 {
     font-family: "Inria Serif", serif;
     font-weight: 400;
@@ -27,7 +28,7 @@ p {
     font-style: normal;
 }
 
-//login page fonts
+//Login Font Styling
 body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-submit  {
     font-family: "Inria Serif", serif;
     font-weight: 400;
@@ -39,3 +40,19 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   font-weight: bold;
   font-size: 1.8rem;
 }
+
+//Event Form Styling
+#acf-form {
+    .acf-label, .acf-button {
+        font-family: "Inria Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .acf-input {
+        .acf-input-wrap {
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    }
+}  

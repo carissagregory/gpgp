@@ -1,0 +1,36 @@
+.acf-form-container {
+    margin-bottom: 10px;
+    #acf-form {
+        background-color: $darkBlue;
+        border-radius: 20px;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        .acf-field {
+            border: none;
+            input[type=text], input[type=date], input[type=datetime], input[type=datetime-local]{
+                background-color: $cream;
+                border: none;
+            }
+            .acf-label {
+                color: white;
+                // .acf-required {
+                //     color: $darkRed;
+                // }
+            }
+            .acf-input {
+                .acf-input-wrap {
+                    border-radius: 30px;
+                }
+            }            
+        }
+        .acf-button {
+            background-color: $gold;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+    }    
+}
+
