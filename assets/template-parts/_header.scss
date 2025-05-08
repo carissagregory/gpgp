@@ -170,6 +170,47 @@ form.search-form {
   }
 }
 
+.nav-wrapper {
+  width: 100%;
+  background-color: $lightBlue;
+  padding: 10px 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: start;
+
+  .main-nav {
+    display: flex;
+    gap: 3rem;
+    padding-left: 20px;
+
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    a.nav-link {
+      color: #000;
+      font-family: "Inria Serif", serif;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $darkRed;
+      }
+    }
+  }
+}
+
 @media (max-width: 576px) {
   #site-header {
     .header-logo {
@@ -198,27 +239,30 @@ form.search-form {
   }
 
   form.search-form {
-    width: 100%;
-    display: flex;
-    align-items: center;
+    display: none;
+    // width: 100%;
+    // display: flex;
+    // align-items: center;
 
     input[type="search"] {
-      width: 0;
-      padding: 0;
-      border: none;
-      background: none;
-      color: transparent;
-      transition: width 0.3s ease;
+      display: none;
+      // width: 0;
+      // padding: 0;
+      // border: none;
+      // background: none;
+      // color: transparent;
+      // transition: width 0.3s ease;
     }
 
     button.search-submit {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      font-size: 1.5rem;
-      justify-content: center;
-      display: flex;
-      align-items: center;
+      display: none;
+      // width: 40px;
+      // height: 40px;
+      // padding: 0;
+      // font-size: 1.5rem;
+      // justify-content: center;
+      // display: flex;
+      // align-items: center;
     }
 
     button.search-submit .search-text {
@@ -226,19 +270,17 @@ form.search-form {
     }
 
     button.search-submit .search-icon {
-      display: inline;
-      font-size: 1.5rem;
+      display: none;
+      // display: inline;
+      // font-size: 1.5rem;
     }
   }
-}
-
-@media (max-width: 576px) {
-  form.search-form:hover input[type="search"],
-  form.search-form input[type="search"]:focus {
-    width: 150px;
-    padding: 5px;
-    background: $darkBlue;
-    color: $cream;
-    border: 1px solid $cream;
-  }
+//   form.search-form:hover input[type="search"],
+//   form.search-form input[type="search"]:focus {
+//     width: 150px;
+//     padding: 5px;
+//     background: $darkBlue;
+//     color: $cream;
+//     border: 1px solid $cream;
+//   }
 }

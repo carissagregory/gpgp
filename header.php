@@ -23,7 +23,7 @@
 
   <div class="header-login">
     <?php get_search_form(); ?>
-    <a href="/login" class="login-button">Log In</a>
+    <a href="/gpgp/wp-login.php" class="login-button">LogIn</a>
   </div>
 </header>
 
@@ -31,11 +31,13 @@
   <nav class="main-nav">
     <?php
       wp_nav_menu(array(
-        'theme_location' => 'main-menu',
-        'menu_class' => 'nav-links',
-        'container' => false,
-        'fallback_cb' => false
-      ));
+      'container'       => 'false',
+      'container_class' => 'col-md-6',
+      'walker'          => new WP_Bootstrap4_Navwalker_Footer(),
+      'theme_location'  => 'main-menu',
+      'items_wrap'      => '<ul class="menu nav justify-content-end">%3$s</ul>',
+    )
+  );
     ?>
   </nav>
 </div>

@@ -34,3 +34,14 @@
     }    
 }
 
+@media (max-width: 576px) {
+    .acf-form-container {
+       #acf-form {
+            width: 100%;
+            border-radius: 0;
+        }  
+    }
+    
+
+}
+

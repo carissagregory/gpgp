@@ -12720,6 +12720,46 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   font-style: normal;
 }
 
+form.search-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+form.search-form input[type=search] {
+  width: 100%;
+  max-width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-family: "Inria Serif", serif;
+}
+form.search-form input[type=search]::-moz-placeholder {
+  color: transparent;
+}
+form.search-form input[type=search]::placeholder {
+  color: transparent;
+}
+form.search-form button.search-submit {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #E9E3DA;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form.search-form button.search-submit .search-text {
+  display: inline;
+}
+form.search-form button.search-submit .search-icon {
+  display: none;
+}
+
 #site-header {
   background-color: #313768 !important;
   color: #E9E3DA;
@@ -12772,22 +12812,10 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   gap: 10px;
   margin-top: 10px;
 }
-#site-header .header-login form.search-form input[type=search] {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1rem;
-  font-family: "Inria Serif", serif;
-  font-size: 0.85rem;
-}
-#site-header .header-login form.search-form input[type=search]::-moz-placeholder {
-  color: transparent;
-}
-#site-header .header-login form.search-form input[type=search]::placeholder {
-  color: transparent;
-}
-#site-header .header-login form.search-form input[type=submit] {
-  display: none;
+#site-header .header-login form.search-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 #site-header .header-login .login-button {
   background-color: #BB8A3D;
@@ -12841,6 +12869,40 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   color: #932B28;
 }
 
+.nav-wrapper {
+  width: 100%;
+  background-color: #989CBE;
+  padding: 10px 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: start;
+}
+.nav-wrapper .main-nav {
+  display: flex;
+  gap: 3rem;
+  padding-left: 20px;
+}
+.nav-wrapper .main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-wrapper .main-nav li {
+  display: inline-block;
+}
+.nav-wrapper .main-nav a.nav-link {
+  color: #000;
+  font-family: "Inria Serif", serif;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-wrapper .main-nav a.nav-link:hover, .nav-wrapper .main-nav a.nav-link:focus, .nav-wrapper .main-nav a.nav-link:active {
+  color: #932B28;
+}
+
 @media (max-width: 576px) {
   #site-header .header-logo {
     margin: 0;
@@ -12861,6 +12923,21 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   #site-header .header-text p {
     font-size: 0.75rem;
   }
+  form.search-form {
+    display: none;
+  }
+  form.search-form input[type=search] {
+    display: none;
+  }
+  form.search-form button.search-submit {
+    display: none;
+  }
+  form.search-form button.search-submit .search-text {
+    display: none;
+  }
+  form.search-form button.search-submit .search-icon {
+    display: none;
+  }
 }
 #footer {
   border-top: 10px solid #932B28;
@@ -12877,8 +12954,9 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
 }
 #footer nav a.nav-link {
   color: white;
+  transition: color 0.3s ease;
 }
-#footer nav a.nav-link:hover {
+#footer nav a.nav-link:hover, #footer nav a.nav-link:focus, #footer nav a.nav-link:active {
   color: #E9E3DA;
 }
 
@@ -12893,6 +12971,9 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
 @media (max-width: 576px) {
   #footer #copyright {
     font-size: 14px;
+  }
+  #footer nav a.nav-link {
+    font-size: 16px;
   }
 }
 #imgDiv {
@@ -13011,7 +13092,7 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  margin: 0px;
+  margin: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -13038,99 +13119,84 @@ body.login div#login form#loginform p label, .user-pass-wrap label, .submit #wp-
 
 .gameCardContent {
   margin-top: 0;
-  padding-top: 0;
+  padding: 8px;
   background-color: #f9f9f9;
   color: #000;
-  padding: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  height: 220px;
-  overflow-y: auto;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-height: 240px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.gameCardMeta p {
-  margin: 0 10px 0 0;
-}
-
-.gameCardInfo,
-.gameCardGoal,
-.gameCardTools,
-.gameCardRules,
-.gameCardOther,
-.gameCardDescription {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: baseline;
-  margin-bottom: 10px;
-}
-
-.gameCardInfo:empty,
-.gameCardGoal:empty,
-.gameCardTools:empty,
-.gameCardRules:empty,
-.gameCardOther:empty,
-.gameCardDescription:empty {
+.gameCardContent::-webkit-scrollbar {
   display: none;
 }
 
-.gameCardPlayers span,
-.gameCardInfo span,
-.gameCardGoal span,
-.gameCardRules span,
-.gameCardOther span,
-.gameCardTools span,
-.gameCardDescription span,
-.gameCardAge span,
-.gameCardTime span,
-.gameCardDifficulty span {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: #555555;
-  letter-spacing: 0.5px;
-  font-weight: bold;
-  line-height: 1;
-  font-family: "Lato", sans-serif;
+.gameCard:hover .gameCardContent {
+  max-height: 1000px;
+  overflow: visible;
 }
 
-.gameCardRules {
+.gameCardContent p {
   display: flex;
-  flex-direction: row;
+  justify-content: flex-start;
   align-items: baseline;
-  margin-bottom: 10px;
-}
-
-.gameCardRules span {
-  margin-right: 8px;
-  font-size: 0.75rem;
+  margin: 0 0 6px 0;
+  font-family: "Lato", sans-serif;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: #555555;
-  letter-spacing: 0.5px;
-  font-weight: bold;
   line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.gameCardMeta p span:first-child {
+  min-width: 70px;
+  text-align: right;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.gameCardMeta p span:last-child {
+  text-align: left;
+  flex: 1;
+}
+
+.viewMore a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  background-color: #313768;
+  color: #E9E3DA;
+  text-decoration: none;
   font-family: "Lato", sans-serif;
-  display: inline-block;
-  word-wrap: break-word;
-  max-width: 100%;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-.gameCardRules p {
+.viewMore a:hover {
+  background-color: #BB8A3D;
+  color: #313768;
+}
+
+.archiveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 20px;
+}
+
+.archiveGrid .gameCard {
   margin: 0;
-  padding-left: 0;
-  display: inline-block;
-  word-break: break-word;
-}
-
-.gameCardRules {
-  white-space: pre-line;
-}
-
-.gameGrid > [class*=col-] {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 20px;
 }
 
 .container {
@@ -13313,6 +13379,12 @@ body.login div#login p#backtoblog a {
   color: white;
 }
 
+@media (max-width: 576px) {
+  .acf-form-container #acf-form {
+    width: 100%;
+    border-radius: 0;
+  }
+}
 body {
   background-color: #E9E3DA;
   /* If WP-Adminbar is visible */
